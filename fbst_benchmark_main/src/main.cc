@@ -278,7 +278,7 @@ main(int argc, char ** argv) -> int
                            static_cast<double>(delta_noop);
                 };
 
-                std::map<decltype(delta_noop), std::string> tagged_time{
+                const std::map<decltype(delta_noop), std::string> tagged_time{
                     {delta_noop, "Noop"},
                     {delta_linear, "Linear"},
                     {delta_binary, "Binary"},
@@ -298,7 +298,7 @@ main(int argc, char ** argv) -> int
                 constexpr auto unit_width = 5;
                 constexpr auto norm_width = precision + 6;
 
-                for (auto & [delta, tag] : tagged_time) {
+                for (const auto & [delta, tag] : tagged_time) {
                     std::cout << std::setprecision(precision)
                               << std::setw(tag_width) << tag << ':'
                               << std::fixed << std::right
